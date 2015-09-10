@@ -223,12 +223,8 @@ public class WebIntent extends CordovaPlugin {
     }
 
     void sendBroadcast(String action, Map<String, String> extras) {
-        Intent intent = new Intent();
-        intent.setAction(action);
-        for (String key : extras.keySet()) {
-            String value = extras.get(key);
-            intent.putExtra(key, value);
-        }
+        Intent intent = new Intent("com.zello.ptt.down");
+        intent.putExtra("com.zello.stayHidden", true);
 
         ((CordovaActivity) this.cordova.getActivity()).sendBroadcast(intent);
     }
